@@ -25,7 +25,9 @@ func SetupRoutes() *gin.Engine {
 	// Set route for index
 	router.GET("/", indexView)
 	router.GET("/items", api.TodoItems)
-	router.DELETE("/item/:id",api.DeleteTodoItem)
+	router.GET("/item/del/:id",api.DeleteTodoItem)
+	router.GET("/item/add/:item",api.CreateTodoItem)
+	router.GET("/item/upd/:id/:done",api.UpdateTodoItem)
 
 	return router
 }

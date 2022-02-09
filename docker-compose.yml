@@ -26,6 +26,8 @@ services:
   react-app:
     container_name: react
     build: ./fontend
+    environment:
+      CHOKIDAR_USEPOLLING: "true"
     volumes:
       - ./fontend/src:/app/src
       - ./fontend/public/assets:/app/public/assets

@@ -1,4 +1,6 @@
 import React from "react";
+import {Button} from "react-bootstrap";
+import './styles/Todolist.css';
 
 class Todolist extends React.Component {
   constructor(props) {
@@ -9,7 +11,7 @@ class Todolist extends React.Component {
   }
 
   removeItem(id) {
-    fetch(`http://localhost:8081/item/${id}`, { method: "DELETE" }).then(
+    fetch(`http://localhost:8081/item/del/${id}`).then(
       this.setState({
         items: this.state.items.filter((item) => item.id !== id),
       })
@@ -21,7 +23,7 @@ class Todolist extends React.Component {
     let item = items.find((item) => item.id === id);
     item.done = !item.done;
 
-    fetch(`http://localhost:8081/item/${id}/${item.done}`,{ method: 'PUT' }).then(
+    fetch(`http://localhost:8081/item/upd/${id}/${item.done}`).then(
       this.setState({ items })
     );
   }
@@ -39,7 +41,7 @@ class Todolist extends React.Component {
       <div className="ListItem" key={item.id} id={item.id}>
         <div className="Title">
           <div className="RemoveItem" onClick={() => this.removeItem(item.id)}>
-            X
+            <Button className="btn btn-primary">x</Button>
           </div>
           {item.item}
         </div>

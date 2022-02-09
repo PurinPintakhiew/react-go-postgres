@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
@@ -10,6 +11,7 @@ import UI from "./components/UI";
 import Datatable from "./components/table";
 import Hook from "./components/Hook";
 import Todo from "./components/Todo";
+import AddBar from "./components/Addbar";
 
 const Routing = () => {
   return (
@@ -35,6 +37,7 @@ const Routing = () => {
 ReactDOM.render(
   <>
     <Routing />
+    <AddBar />
   </>,
   document.getElementById("root")
 );
